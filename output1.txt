@@ -1,0 +1,114 @@
+Functional Dependency: OrderID  ->  CustomerID
+Multi-Valued Dependency: OrderID ->> DrinkID
+Applied 1NF
+CREATE TABLE Table_1NF (
+  OrderID INT,
+  Date VARCHAR(255),
+  PromocodeUsed VARCHAR(255),
+  TotalCost VARCHAR(255),
+  TotalDrinkCost VARCHAR(255),
+  TotalFoodCost VARCHAR(255),
+  CustomerID INT,
+  CustomerName VARCHAR(255),
+  DrinkID INT,
+  DrinkName VARCHAR(255),
+  DrinkSize VARCHAR(255),
+  DrinkQuantity INT,
+  Milk VARCHAR(255),
+  DrinkIngredient VARCHAR(255),
+  DrinkAllergen VARCHAR(255),
+  FoodID INT,
+  FoodName VARCHAR(255),
+  FoodQuantity INT,
+  FoodIngredient VARCHAR(255),
+  FoodAllergen VARCHAR(255),
+  PRIMARY KEY (OrderID, CustomerID, DrinkID, FoodID)
+);
+
+Table: Table_1NF
+Attributes:
+  - OrderID (INT)
+  - Date (VARCHAR(255))
+  - PromocodeUsed (VARCHAR(255))
+  - TotalCost (VARCHAR(255))
+  - TotalDrinkCost (VARCHAR(255))
+  - TotalFoodCost (VARCHAR(255))
+  - CustomerID (INT)
+  - CustomerName (VARCHAR(255))
+  - DrinkID (INT)
+  - DrinkName (VARCHAR(255))
+  - DrinkSize (VARCHAR(255))
+  - DrinkQuantity (INT)
+  - Milk (VARCHAR(255))
+  - DrinkIngredient (VARCHAR(255))
+  - DrinkAllergen (VARCHAR(255))
+  - FoodID (INT)
+  - FoodName (VARCHAR(255))
+  - FoodQuantity (INT)
+  - FoodIngredient (VARCHAR(255))
+  - FoodAllergen (VARCHAR(255))
+Primary Key(s): OrderID, CustomerID, DrinkID, FoodID
+
+2NF validation successful.
+3NF validation successful.
+BCNF validation successful.
+4NF Decomposition: Created table with OrderID ->> DrinkID
+CREATE TABLE Table_4NF_1 (
+  OrderID INT,
+  Date VARCHAR(255),
+  PromocodeUsed VARCHAR(255),
+  TotalCost VARCHAR(255),
+  TotalDrinkCost VARCHAR(255),
+  TotalFoodCost VARCHAR(255),
+  CustomerID INT,
+  CustomerName VARCHAR(255),
+  DrinkName VARCHAR(255),
+  DrinkSize VARCHAR(255),
+  DrinkQuantity INT,
+  Milk VARCHAR(255),
+  DrinkIngredient VARCHAR(255),
+  DrinkAllergen VARCHAR(255),
+  FoodID INT,
+  FoodName VARCHAR(255),
+  FoodQuantity INT,
+  FoodIngredient VARCHAR(255),
+  FoodAllergen VARCHAR(255),
+  PRIMARY KEY (OrderID, CustomerID, DrinkID, FoodID)
+);
+
+Table: Table_4NF_1
+Attributes:
+  - OrderID (INT)
+  - Date (VARCHAR(255))
+  - PromocodeUsed (VARCHAR(255))
+  - TotalCost (VARCHAR(255))
+  - TotalDrinkCost (VARCHAR(255))
+  - TotalFoodCost (VARCHAR(255))
+  - CustomerID (INT)
+  - CustomerName (VARCHAR(255))
+  - DrinkName (VARCHAR(255))
+  - DrinkSize (VARCHAR(255))
+  - DrinkQuantity (INT)
+  - Milk (VARCHAR(255))
+  - DrinkIngredient (VARCHAR(255))
+  - DrinkAllergen (VARCHAR(255))
+  - FoodID (INT)
+  - FoodName (VARCHAR(255))
+  - FoodQuantity (INT)
+  - FoodIngredient (VARCHAR(255))
+  - FoodAllergen (VARCHAR(255))
+Primary Key(s): OrderID, CustomerID, DrinkID, FoodID
+
+CREATE TABLE Table_4NF_2 (
+  OrderID INT,
+  DrinkID INT,
+  PRIMARY KEY (OrderID, DrinkID)
+);
+
+Table: Table_4NF_2
+Attributes:
+  - OrderID (INT)
+  - DrinkID (INT)
+Primary Key(s): OrderID, DrinkID
+
+The highest normal form achieved: BCNF
